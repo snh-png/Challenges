@@ -3,29 +3,22 @@ package Day_3;
 import java.util.Scanner;
 
 class CircularDoubleLinkedList {
-    public static void main(String args[]) throws Exception {
+    public static void main(String args[]) {
         Scanner s = new Scanner(System.in);
         int inputSize = s.nextInt();
-        int[] input = new int[inputSize];
-
-        int counter = 0;
-        while (counter < inputSize) {
-            input[counter] = s.nextInt();
-            counter++;
-        }
-
-        int i = 0;
-        int multipleOfThree = 1;
+        Integer firstNumber = null;
+        int currentIndex = 1;
         StringBuilder op = new StringBuilder();
-        while (i < inputSize) {
-            int currentNumber = input[i];
-            if (i > 0 && input[0] == currentNumber) break;
-            op.append(currentNumber + " ");
-            if (i >= 2) {
-                multipleOfThree++;
-                i = 3 * multipleOfThree - 1;
-            } else i++;
+
+        while (currentIndex <= inputSize) {
+            int currentNumber = s.nextInt();
+            if (firstNumber == null) firstNumber = currentNumber;
+            if (currentIndex > 1 && firstNumber == currentNumber) break;
+            if (currentIndex <= 3 || currentIndex % 3 == 0)
+                op.append(currentNumber + " ");
+            currentIndex++;
         }
+
         System.out.println(op);
     }
 }
