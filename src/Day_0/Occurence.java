@@ -1,3 +1,5 @@
+package Day_0;
+
 public class Occurence {
 
     private static int mainCounter;

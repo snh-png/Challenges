@@ -1,3 +1,5 @@
+package Day_1;
+
 import java.util.stream.IntStream;
 
 class StringRoller {

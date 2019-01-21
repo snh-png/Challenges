@@ -1,3 +1,5 @@
+package Day_0;
+
 import java.util.Scanner;
 
 public class Bomber {
