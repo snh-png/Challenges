@@ -2,18 +2,32 @@ package Day_5;
 
 public class SuperPalindrome {
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
-            int r = Integer.parseInt(String.valueOf(i) + reverse(i));
-            int r1 = Integer.parseInt(String.valueOf(i) + reverseTrimmed(i));
-            if (checkPalindrome(r * r)) System.out.println(r * r);
-            if (checkPalindrome(r1 * r1)) System.out.println(r1 * r1);
+        for (int i = 1; i < 10; i++) {
+            int r_odd = oddR(i);
+            int r_even = evenR(i);
+            if (checkPalindrome(r_odd * r_odd)) System.out.println(r_odd * r_odd);
+            if (checkPalindrome(r_even * r_even)) System.out.println(r_even * r_even);
         }
     }
 
-    private static long reverseTrimmed(int i) {
-        long reverse = reverse(i);
-        if (reverse < 10) return reverse;
-        return Integer.valueOf(String.valueOf(reverse).substring(1));
+    private static int oddR(int n) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(n);
+        int length = sb.length();
+        for (int i = length - 2; i >= 0; i--) {
+            sb.append(sb.charAt(i));
+        }
+        return Integer.parseInt(sb.toString());
+    }
+
+    private static int evenR(int n) {
+        StringBuilder sb = new StringBuilder(n);
+        sb.append(n);
+        int length = sb.length();
+        for (int i = length - 1; i >= 0; i--) {
+            sb.append(sb.charAt(i));
+        }
+        return Integer.parseInt(sb.toString());
     }
 
     private static boolean checkPalindrome(int i) {
@@ -27,7 +41,6 @@ public class SuperPalindrome {
             ans = 10 * ans + x % 10;
             x /= 10;
         }
-
         return ans;
     }
 }
