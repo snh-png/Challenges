@@ -4,8 +4,8 @@ import java.util.stream.IntStream;
 
 class StringRoller {
     public static void main(String[] args) {
-        String s = "abzcd";
-        int k[] = {0, 0, 1};
+        String s = "zcza";
+        int k[] = {1, 1, 3, 4};
         System.out.println(roll(s, k));
     }
 
