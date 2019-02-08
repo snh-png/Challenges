@@ -1,0 +1,28 @@
+Pattern Printing
+Given a number N print a pattern (see below)
+
+Input
+First line of input contains the number T which is the number of test cases.
+Each of the following T lines contains a number N.
+
+Constraints
+Character set
+
+123456789
+1 <= T <= 100
+1 <= N <= 9
+Sample Input
+2
+4
+2
+Sample Output
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+2 2 2
+2 1 2
+2 2 2
