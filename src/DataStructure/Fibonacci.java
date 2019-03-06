@@ -1,4 +1,4 @@
-package Day_6;
+package DataStructure;
 
 import java.text.DecimalFormat;
 

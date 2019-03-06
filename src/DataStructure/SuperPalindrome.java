@@ -1,4 +1,4 @@
-package Day_5;
+package DataStructure;
 
 public class SuperPalindrome {
     public static void main(String[] args) {

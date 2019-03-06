@@ -1,4 +1,4 @@
-package Day_2;
+package DataStructure;
 
 import java.util.Arrays;
 import java.util.LinkedList;
