@@ -1,4 +1,4 @@
-package Day_8;
+package DataStructure;
 
 public class StringCombination {
     static void printPermutn(String str, String ans) {

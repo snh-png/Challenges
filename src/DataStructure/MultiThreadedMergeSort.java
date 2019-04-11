@@ -1,4 +1,4 @@
-package Day_9;
+package DataStructure;
 
 public class MultiThreadedMergeSort {
 }

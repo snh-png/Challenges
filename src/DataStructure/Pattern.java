@@ -1,4 +1,4 @@
-package Day_10;
+package DataStructure;
 
 public class Pattern {
     public static void main(String[] args) {
