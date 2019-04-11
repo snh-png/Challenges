@@ -9,6 +9,26 @@ public class Occurence {
         String subStr = " a ";
         char[] inputString_Chars = str.toCharArray();
         char[] inputSubString_Chars = subStr.toCharArray();
+        int j = 0;
+        int i = 0;
+        for (; i < inputString_Chars.length; i++) {
+            while (j < inputSubString_Chars.length && inputSubString_Chars[j] == inputString_Chars[i]) {
+                j++;
+                if (j == inputSubString_Chars.length - 1) {
+                    mainCounter++;
+                    j = 0;
+                }
+                break;
+            }
+        }
+        System.out.println("matchingCharCount: " + mainCounter);
+    }
+
+    /*public static void main(String[] args) {
+        String str = "xyz is a good place a to work";
+        String subStr = " a ";
+        char[] inputString_Chars = str.toCharArray();
+        char[] inputSubString_Chars = subStr.toCharArray();
         int matchingCharCount = 0;
         int j = 0;
         int i = 0;
@@ -30,5 +50,5 @@ public class Occurence {
             }
         }
         System.out.println("matchingCharCount: " + mainCounter);
-    }
+    }*/
 }
