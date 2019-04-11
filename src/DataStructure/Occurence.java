@@ -1,4 +1,4 @@
-package Day_0;
+package DataStructure;
 
 public class Occurence {
 

@@ -1,4 +1,4 @@
-package Day_0;
+package DataStructure;
 
 import java.util.ArrayList;
 import java.util.List;

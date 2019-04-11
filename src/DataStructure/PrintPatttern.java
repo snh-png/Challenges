@@ -1,4 +1,4 @@
-package Day_7;
+package DataStructure;
 
 import java.util.Scanner;
 
