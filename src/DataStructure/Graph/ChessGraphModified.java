@@ -3,7 +3,9 @@ package DataStructure.Graph;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class ChessGraphModified {
     static StringBuilder sb = new StringBuilder();
@@ -23,22 +25,16 @@ public class ChessGraphModified {
                 }
             }
             Graph graph = new Graph(size * size, inputArray);
-            graph.printGraph();
-            search(graph, graph.nodes[0], graph.nodes[size * size - 1]);
+//            graph.printGraph();
+//            graph.printAllPaths(graph.nodes[0], graph.nodes[size * size - 1]);
+            graph.printMaxScoreAndPathCount(graph.nodes[0], graph.nodes[size * size - 1]);
         }
     }
 
-    private static void search(Graph graph, Graph.Node start, Graph.Node end) {
-        if (start == null) return;
-        visit(start);
-        for (int i = 0; start.children != null && i < start.children.size(); i++) {
-            search(graph, (Graph.Node) start.children.get(i), end);
-        }
-    }
 
-    private static void visit(Graph.Node start) {
-        sb.append(start.data + " -> ");
-    }
+//    private static void visit(Graph.Node start) {
+//        sb.append(start.data + " -> ");
+//    }
 
     static class Graph<T> {
         private int vertices;
@@ -89,9 +85,51 @@ public class ChessGraphModified {
             }
         }
 
+        public void printAllPaths(Graph.Node source, Graph.Node destination) {
+            ArrayList<Graph.Node> pathList = new ArrayList<>();
+            pathList.add(source);
+            search(source, destination, pathList);
+        }
+
+        int maxScore;
+
+        private void search(Node start, Node end, ArrayList<Node> pathList) {
+            if (start.equals(end)) {
+                int tempScore = 0;
+                for (Node<Character> node : pathList) {
+                    char score = node.data;
+                    if (score >= '0' && score <= '9') {
+                        tempScore += score;
+                    }
+                }
+                if (tempScore > maxScore) maxScore = tempScore;
+                System.out.println(pathList.stream().map(n -> n.toString()).collect(Collectors.joining(" -> ")));
+                return;
+            }
+            for (int i = 0; start.children != null && i < start.children.size(); i++) {
+                Node e = (Node) start.children.get(i);
+                if (e.data.equals('x')) continue;
+                pathList.add(e);
+                search(e, end, pathList);
+                pathList.remove(e);
+            }
+        }
+
+        public void printMaxScoreAndPathCount(Node start, Node end) {
+            ArrayList<Graph.Node> pathList = new ArrayList<>();
+            pathList.add(start);
+            search(start, end, pathList);
+            System.out.println(maxScore);
+        }
+
         class Node<T> {
             public T data;
             public LinkedList<Node<T>> children;
+
+            @Override
+            public String toString() {
+                return String.valueOf(data);
+            }
         }
     }
 }
