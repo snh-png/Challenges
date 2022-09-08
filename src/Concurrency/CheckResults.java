@@ -10,11 +10,12 @@ public class CheckResults {
         try {
             executorService = Executors.newSingleThreadExecutor();
             Future<?> result = executorService.submit(() -> {
-                for (int i = 0; i < 50000000; i++) {
+                for (int i = 0; i < 10000; i++) {
                     counter++;
                 }
+                return counter;
             });
-            result.get(10, TimeUnit.NANOSECONDS);
+            System.out.println(result.get(10, TimeUnit.NANOSECONDS));
         } catch (TimeoutException e) {
             System.out.println("Not reached in time");
         } finally {

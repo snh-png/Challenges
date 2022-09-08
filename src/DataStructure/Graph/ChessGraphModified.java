@@ -93,7 +93,7 @@ public class ChessGraphModified {
 
         int maxScore;
 
-        private void search(Node start, Node end, ArrayList<Node> pathList) {
+        private void search(Node start, Node end, ArrayList<Graph.Node> pathList) {
             if (start.equals(end)) {
                 int tempScore = 0;
                 for (Node<Character> node : pathList) {

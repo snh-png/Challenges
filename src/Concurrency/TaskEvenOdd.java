@@ -1,3 +1,4 @@
+/*
 package Concurrency;
 
 import java.util.stream.IntStream;
@@ -58,3 +59,4 @@ public class ThreadSequence implements Runnable {
         }
     }
 }
+*/
